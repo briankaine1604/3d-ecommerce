@@ -1,16 +1,8 @@
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { Home, LogIn, Settings, ShoppingCart } from "lucide-react";
 import Link from "next/link";
-import React from "react";
-import { Home, Loader2, LogIn, Settings, ShoppingCart } from "lucide-react";
-import { Button } from "./ui/button";
-import { Card } from "./ui/card";
 import { Container } from "./container";
-import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { Button } from "./ui/button";
 
 type Props = {};
 
