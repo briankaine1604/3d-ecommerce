@@ -9,4 +9,6 @@ export type ProductType = {
   price: number;
   imgPath: string;
   createdAt?: Date | Timestamp;
+  color?: string;
+  description?: string;
 };

@@ -1,9 +1,16 @@
 import Link from "next/link";
 import React from "react";
-import { Home, Settings, ShoppingCart } from "lucide-react";
+import { Home, Loader2, LogIn, Settings, ShoppingCart } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 import { Container } from "./container";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 
 type Props = {};
 
@@ -22,6 +29,18 @@ export function Navbar({}: Props) {
               <Settings className="text-blue-500 size-5" />
             </Link>
           </Button>
+          <div className="flex items-center">
+            <SignedOut>
+              <SignInButton>
+                <Button variant={"ghost"} className=" rounded-full">
+                  <LogIn className="text-blue-500 size-5" />
+                </Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </div>
           <Button variant={"ghost"} className=" rounded-full">
             <Link href={"/cart"}>
               <ShoppingCart className="text-blue-500 size-5" />

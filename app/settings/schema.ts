@@ -6,4 +6,6 @@ export const formSchema = z.object({
   imgPath: z.string().min(1),
   scale: z.coerce.number().min(0),
   price: z.coerce.number().min(1),
+  color: z.string().optional(),
+  description: z.string().optional(),
 });

@@ -20,6 +20,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { z } from "zod";
 import { formSchema } from "../../schema";
+import { Textarea } from "@/components/ui/textarea";
 
 type Props = {
   initialData?: any;
@@ -40,6 +41,8 @@ export function Productform({ initialData }: Props) {
           name: "",
           src: "",
           imgPath: "",
+          color: "",
+          description: "",
           scale: 1,
           price: 0,
         },
@@ -96,7 +99,7 @@ export function Productform({ initialData }: Props) {
         <h2 className=" text-2xl font-semibold mb-5">Product Form</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className=" ">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
               <FormField
                 control={form.control}
                 name="name"
@@ -136,6 +139,38 @@ export function Productform({ initialData }: Props) {
                   </FormItem>
                 )}
               />
+              <FormField
+                control={form.control}
+                name="color"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Color</FormLabel>
+                    <FormControl>
+                      <Input {...field} placeholder="Black" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <div className=" sm:col-span-2">
+                <FormField
+                  control={form.control}
+                  name="description"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Product description</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          {...field}
+                          placeholder="Product description"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
               <FormField
                 control={form.control}
                 name="src"

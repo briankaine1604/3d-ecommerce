@@ -38,17 +38,19 @@ export default function Home() {
     <main className=" bg-gray-50/80">
       <Container className="p-5 mb-20">
         <div className="py-20 text-center flex flex-col mx-auto items-center max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight relative">
-            Discover High-Quality 3D Models at{" "}
+          <h1 className="text-2xl font-bold tracking-tight relative">
+            Experience Online Shopping Like Never Before at{" "}
             <div className="mt-5 relative h-[100px] ">
-              <div className="text text-blue-500 ">3D Haven</div>
+              <div className="text text-blue-500">3D Shopfront</div>
             </div>
           </h1>
 
           <p className="mt-6 text-lg max-w-prose text-muted-foreground">
-            Welcome to 3D Haven, your ultimate destination for premium 3D
-            models. Perfect for game development, virtual reality, 3D printing,
-            and more.
+            Welcome to 3D Shopfront, the future of online shopping where
+            products come to life through interactive 3D models. Gone are the
+            days of static images—our innovative platform allows you to explore
+            items from every angle, providing a realistic and immersive shopping
+            experience.
           </p>
         </div>
 
@@ -74,7 +76,7 @@ export default function Home() {
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  onClick={() => router.push(`/details/${product.id}`)}
+                  onClick={() => router.push(`/products/${product.id}`)}
                   className="rounded-md"
                 />
               </div>
