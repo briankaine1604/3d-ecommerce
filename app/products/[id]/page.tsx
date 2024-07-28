@@ -61,42 +61,44 @@ const Details = ({ params }: { params: { id: string } }) => {
 
   return (
     <div className=" grid md:grid-cols-2">
-      <Canvas
-        flat
-        gl={{ localClippingEnabled: true }}
-        style={{ height: "100dvh", touchAction: "none" }}
-        className=""
-      >
-        <Defaults>
-          <ambientLight />
-          <Environment preset="sunset" />
-          <OrbitControls />
-          <Fullscreen>
-            <Container
-              width={"100%"}
-              height={"100%"}
-              flexDirection={"column"}
-              alignItems={"center"}
-            >
-              <Content width={"100%"} height={"100%"}>
-                <mesh>
-                  <planeGeometry />
-                  <MeshPortalMaterial>
-                    <Environment preset="sunset" />
-                    <Gltf
-                      position-y={-0.5}
-                      src={productDetails.src}
-                      scale={productDetails.scale}
-                    />
-                    <PerspectiveCamera makeDefault position={[-3, 0, 4]} />
-                    <OrbitControls />
-                  </MeshPortalMaterial>
-                </mesh>
-              </Content>
-            </Container>
-          </Fullscreen>
-        </Defaults>
-      </Canvas>
+      <div className="border px-5">
+        <Canvas
+          flat
+          gl={{ localClippingEnabled: true }}
+          style={{ height: "80dvh", touchAction: "none" }}
+          className=""
+        >
+          <Defaults>
+            <ambientLight />
+            <Environment preset="sunset" />
+            <OrbitControls />
+            <Fullscreen>
+              <Container
+                width={"100%"}
+                height={"100%"}
+                flexDirection={"column"}
+                alignItems={"center"}
+              >
+                <Content width={"100%"} height={"100%"}>
+                  <mesh>
+                    <planeGeometry />
+                    <MeshPortalMaterial>
+                      <Environment preset="sunset" />
+                      <Gltf
+                        position-y={-0.5}
+                        src={productDetails.src}
+                        scale={productDetails.scale}
+                      />
+                      <PerspectiveCamera makeDefault position={[-3, 0, 4]} />
+                      <OrbitControls />
+                    </MeshPortalMaterial>
+                  </mesh>
+                </Content>
+              </Container>
+            </Fullscreen>
+          </Defaults>
+        </Canvas>
+      </div>
       <div>
         <Info data={productDetails} />
       </div>
