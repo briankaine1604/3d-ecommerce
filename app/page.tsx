@@ -5,6 +5,7 @@ import { Container } from "@/components/container";
 import { Footer } from "@/components/footer";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ProductType } from "@/constants";
+import { formatter } from "@/lib/utils";
 import { Inter } from "next/font/google";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -68,17 +69,25 @@ export default function Home() {
             {products.map((product) => (
               <div
                 key={product.id}
-                className="w-[270px] h-[200px] relative mx-auto shadow-sm bg-white rounded-md hover:cursor-pointer hover:scale-105 hover:shadow-lg transition-all duration-300"
+                className="w-fit bg-white rounded-xl shadow-sm hover:cursor-pointer hover:shadow-lg transition-all duration-300 mx-auto group"
+                onClick={() => router.push(`/products/${product.id}`)}
               >
-                <Image
-                  src={product.imgPath}
-                  alt="Image"
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  onClick={() => router.push(`/products/${product.id}`)}
-                  className="rounded-md"
-                />
+                <div className="w-[250px] h-[200px] relative overflow-hidden">
+                  <Image
+                    src={product.imgPath}
+                    alt="Image"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="group-hover:scale-90 peer-hover:shadow-lg transition-all duration-300"
+                  />
+                </div>
+                <div className="p-5">
+                  <div className="text-black/50 text-xl">{product.name}</div>
+                  <div className="text-md font-bold">
+                    {formatter.format(product.price)}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
