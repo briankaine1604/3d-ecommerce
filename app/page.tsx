@@ -83,7 +83,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-5">
-                  <div className="text-black/50 text-xl">{product.name}</div>
+                  <div className="text-black/50 text-lg">{product.name}</div>
                   <div className="text-md font-bold">
                     {formatter.format(product.price)}
                   </div>
