@@ -61,7 +61,7 @@ const Details = ({ params }: { params: { id: string } }) => {
 
   return (
     <div className=" grid md:grid-cols-2">
-      <div className="border px-5">
+      <div className="px-5">
         <Canvas
           flat
           gl={{ localClippingEnabled: true }}
